@@ -7,6 +7,7 @@
 //
 
 #import "KMViewController.h"
+#import "KMPointsOfInterest.h"
 
 @interface KMViewController ()
 
@@ -19,10 +20,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    //self.navigationController.toolbarHidden = NO;
-    
     _mapView.showsUserLocation = YES;
     _mapView.delegate = self;
+    
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
+    [self.mapView addGestureRecognizer:lpgr];
+    
 }
 
 - (IBAction)zoomIn:(id)sender {
@@ -42,6 +46,41 @@
 {
     _mapView.centerCoordinate =
     userLocation.location.coordinate;
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"location";
+    if ([annotation isKindOfClass:[KMPointsOfInterest class]]) {
+        
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+        } else {
+            annotationView.annotation = annotation;
+            NSLog(@"In Else");
+        }
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [_mapView convertPoint:touchPoint toCoordinateFromView:_mapView];
+    
+    KMPointsOfInterest *annot = [[KMPointsOfInterest alloc] initWithName:@"User Pin" address:@"" coordinate:touchMapCoordinate];
+    //annot.coordinate = touchMapCoordinate;
+    
+    [_mapView addAnnotation:annot];
+    NSLog(@"After add annotation method");
 }
 
 - (void)didReceiveMemoryWarning

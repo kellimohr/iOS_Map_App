@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1191F0CF183D5E4800718B06 /* KMPointsOfInterest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1191F0CE183D5E4800718B06 /* KMPointsOfInterest.m */; };
 		A3C1957D183B1DF8007F8F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C1957C183B1DF8007F8F44 /* Foundation.framework */; };
 		A3C1957F183B1DF8007F8F44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C1957E183B1DF8007F8F44 /* CoreGraphics.framework */; };
 		A3C19581183B1DF8007F8F44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C19580183B1DF8007F8F44 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1191F0CD183D5E4800718B06 /* KMPointsOfInterest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPointsOfInterest.h; sourceTree = "<group>"; };
+		1191F0CE183D5E4800718B06 /* KMPointsOfInterest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPointsOfInterest.m; sourceTree = "<group>"; };
 		A3C19579183B1DF8007F8F44 /* Map App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Map App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C1957C183B1DF8007F8F44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3C1957E183B1DF8007F8F44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,8 @@
 				A3C19592183B1DF8007F8F44 /* KMViewController.m */,
 				A3C19594183B1DF8007F8F44 /* Images.xcassets */,
 				A3C19583183B1DF8007F8F44 /* Supporting Files */,
+				1191F0CD183D5E4800718B06 /* KMPointsOfInterest.h */,
+				1191F0CE183D5E4800718B06 /* KMPointsOfInterest.m */,
 			);
 			path = "Map App";
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				A3C19593183B1DF8007F8F44 /* KMViewController.m in Sources */,
 				A3C1958D183B1DF8007F8F44 /* KMAppDelegate.m in Sources */,
 				A3C19589183B1DF8007F8F44 /* main.m in Sources */,
+				1191F0CF183D5E4800718B06 /* KMPointsOfInterest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +475,7 @@
 				A3C195AD183B1DF8007F8F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3C195AE183B1DF8007F8F44 /* Build configuration list for PBXNativeTarget "Map AppTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +484,7 @@
 				A3C195B0183B1DF8007F8F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

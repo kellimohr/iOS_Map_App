@@ -36,8 +36,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zG1-2R-LgQ">
-                                <rect key="frame" x="0.0" y="107" width="320" height="316"/>
+                                <rect key="frame" x="0.0" y="107" width="320" height="420"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="zwV-zS-wmz"/>
+                                </connections>
                             </mapView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouI-Dc-nME">
                                 <rect key="frame" x="0.0" y="63" width="320" height="44"/>
@@ -60,7 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="zG1-2R-LgQ" id="ssR-ro-rBd"/>
+                        <outlet property="mapView" destination="zG1-2R-LgQ" id="sHa-xk-b1X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
