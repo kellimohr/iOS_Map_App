@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#define kGOOGLE_API_KEY @"AIzaSyDBORJq6xgpNjeaSYQAw6JQ5E_Tk4KM49s"
+#define kGOOGLE_API_KEY @"AIzaSyBScwhO87M7lLo65vEZ07Fz2fjcnY2oh04"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface KMViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>

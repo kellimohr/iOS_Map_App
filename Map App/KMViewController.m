@@ -73,7 +73,7 @@
         
         MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         if (annotationView == nil) {
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
             annotationView.enabled = YES;
             annotationView.canShowCallout = YES;
         } else {
@@ -109,9 +109,9 @@
     CLLocationCoordinate2D touchMapCoordinate = [_mapView convertPoint:touchPoint toCoordinateFromView:_mapView];
     
     KMPointsOfInterest *annot = [[KMPointsOfInterest alloc] initWithName:@"User Pin" address:@"" coordinate:touchMapCoordinate];
-    //annot.coordinate = touchMapCoordinate;
     
     [_mapView addAnnotation:annot];
+    [_mapView showAnnotations: _mapView.annotations animated: YES];
     NSLog(@"After add annotation method");
 }
 
@@ -120,6 +120,8 @@
     
     //Formulate the string as a URL object.
     NSURL *googleRequestURL=[NSURL URLWithString:url];
+    
+    NSLog(@"%@", url);
     
     // Retrieve the results of the URL.
     dispatch_async(kBgQueue, ^{
