@@ -32,13 +32,18 @@
     [locationManager setDistanceFilter:kCLDistanceFilterNone];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
-    _mapView.showsUserLocation = YES;
+    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied ||
+       [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted  )
+    {
+        NSLog(@"Not Authorized");
+    }
+    else{
+        _mapView.showsUserLocation = YES;
     
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
-    [_mapView addGestureRecognizer:lpgr];
-    
-
+        UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPress:)];
+        lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
+        [_mapView addGestureRecognizer:lpgr];
+    }
 }
 
 - (IBAction)zoomIn:(id)sender {
