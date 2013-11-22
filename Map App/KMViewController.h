@@ -10,7 +10,15 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface KMViewController : UIViewController <MKMapViewDelegate>
+#define kGOOGLE_API_KEY @"AIzaSyDBORJq6xgpNjeaSYQAw6JQ5E_Tk4KM49s"
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
+@interface KMViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+{
+    CLLocationManager *locationManager;
+    CLLocationCoordinate2D currentCentre;
+    int currenDist;
+}
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 - (IBAction)zoomIn:(id)sender;

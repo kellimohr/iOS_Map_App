@@ -63,7 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="zG1-2R-LgQ" id="sHa-xk-b1X"/>
+                        <outlet property="mapView" destination="zG1-2R-LgQ" id="abx-Qf-6IL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
