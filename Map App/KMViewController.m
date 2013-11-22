@@ -144,6 +144,8 @@
     
     //Write out the data to the console.
     NSLog(@"Google Data: %@", places);
+    
+    [self plotPositions:places];
 }
 
 -(void)plotPositions:(NSArray *)data {
@@ -171,7 +173,9 @@
         placeCoord.longitude=[[loc objectForKey:@"lng"] doubleValue];
        
         KMPointsOfInterest *placeObject = [[KMPointsOfInterest alloc] initWithName:name address:vicinity coordinate:placeCoord];
+        NSLog(@"Get ready to add google anotations!");
         [_mapView addAnnotation:placeObject];
+        [_mapView showAnnotations: _mapView.annotations animated: YES];
     }
 }
 
